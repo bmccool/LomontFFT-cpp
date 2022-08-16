@@ -1,0 +1,17 @@
+*.sln
+*.vcxproj
+*.filters
+/x64/*
+/venv/*
+/build/*
+/CMakeFiles/*
+/lib/*
+*.dir/
+*/build/*
+*.cmake
+*/CMakeCache.txt
+graph_info.json
+CMakeCache.txt
+CMakePresets.json
+conanbuildinfo.txt
+conaninfo.txt
