@@ -7,7 +7,7 @@
     REQUIRE(x.size() == y.size()); \
     for (size_t i = 0; i < x.size(); ++i) { \
             if (x[i] != Catch::Approx(y[i])) { \
-                    REQUIRE(x[i] == Catch::Approx(y[i]).epsilon(0.1)); \
+                    REQUIRE(x[i] == Catch::Approx(y[i]).margin(0.0001).epsilon(0.01)); \
             } \
     }
 
