@@ -21,6 +21,8 @@ spec:
         stage('Main') {
             steps {
                 sh 'hostname'
+                sh 'pwd'
+                sh 'ls -la'
                 sh 'python --version'
                 sh 'pip install conan'
                 sh 'conan create .'
