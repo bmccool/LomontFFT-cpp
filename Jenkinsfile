@@ -8,7 +8,7 @@ kind: Pod
 spec:
   containers:
   - name: python310
-    image: python:3.10.7-bullseye
+    image: conanio/gcc10:1.52.0
     command:
     - sleep
     args:
