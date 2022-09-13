@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <vector>
+#include <complex>      // std::complex, std::abs
 #define PI 3.141592653589793238462643383279502884197169399375105820974944
 
 
@@ -27,6 +28,17 @@ class LomontFFT {
         int A = 0;
         int B = 1;
         //LomontFFT():{} Empty, use compiler default constructor
+
+        void mag(std::vector<double>& data){
+          for(int i = 0; i < data.size() / 2; i++){
+            std::complex<double> cplex(data[i*2], data[(i*2) + 1]);
+            data[i] = std::abs(cplex);
+          }
+          auto newsize = data.size() / 2;
+          while(data.size() > newsize){
+            data.pop_back();
+          }
+        }
 
         /// <summary>
         /// Compute the forward or inverse Fourier Transform of data, with 
@@ -141,6 +153,7 @@ class LomontFFT {
                 mmax = istep;
             }
         }
+        
         /// <summary>
         /// Swap data indices whenever index i has binary 
         /// digits reversed from index j, where data is
