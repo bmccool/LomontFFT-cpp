@@ -29,7 +29,7 @@ spec:
                 sh 'python --version'
                 sh 'pip install conan'
                 //sh 'conan create .'
-                sh 'conan remote add mccool https://brendonmccool.jfrog.io/artifactory/api/conan/mccool-conan'
+                sh 'conan remote add mccool https://brendonmccool.jfrog.io/artifactory/api/conan/mccool-conan-local'
                 sh 'conan user -p $CONAN_PASSWORD -r mccool brendonmccool@gmail.com'
             }
         }
