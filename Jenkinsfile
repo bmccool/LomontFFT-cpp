@@ -17,6 +17,9 @@ spec:
             defaultContainer 'python310'
         }
     }
+    environment {
+        CONAN_PASSWORD = credentials('CONAN_PASSWORD')
+    }
     stages {
         stage('Main') {
             steps {
@@ -26,6 +29,8 @@ spec:
                 sh 'python --version'
                 sh 'pip install conan'
                 sh 'conan create .'
+                sh 'conan remote add mccool https://brendonmccool.jfrog.io/artifactory/api/conan/mccool-conan'
+                sh 'conan user -p $ -r mccool brendonmccool@gmail.com'
             }
         }
     }
