@@ -18,7 +18,7 @@ spec:
         }
     }
     environment {
-        CONAN_PASSWORD = credentials('CONAN_PASSWORD')
+        CONAN_PASSWORD = credentials('CONAN_PASS_TAURUS')
     }
     stages {
         stage('Main') {
@@ -29,7 +29,7 @@ spec:
                 sh 'python --version'
                 sh 'pip install conan'
                 sh 'conan create .'
-                sh 'conan remote add mccool https://brendonmccool.jfrog.io/artifactory/api/conan/mccool-conan-local'
+                sh 'conan remote add mccool https://artifactory-ce.taurus.brendonmccool.com/artifactory/api/conan/conan'
                 sh 'conan user -p $CONAN_PASSWORD -r mccool brendonmccool@gmail.com'
                 sh 'conan upload "LomontFFT*" --all -r mccool -c --retry 3 --retry-wait 10 --no-overwrite'
             }
