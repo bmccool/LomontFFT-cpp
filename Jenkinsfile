@@ -27,10 +27,10 @@ spec:
                 sh 'pwd'
                 sh 'ls -la'
                 sh 'python --version'
-                sh 'pip install conan'
-                sh 'conan create .'
                 sh 'conan remote add mccool https://artifactory-ce.taurus.brendonmccool.com/artifactory/api/conan/conan-local'
-                sh 'conan user -p $CONAN_PASSWORD -r mccool brendonmccool@gmail.com'
+                sh 'conan user -p $CONAN_PASSWORD -r mccool admin'
+                //sh 'pip install conan'
+                sh 'conan create .'
                 sh 'conan upload "LomontFFT*" --all -r mccool -c --retry 3 --retry-wait 10 --no-overwrite'
             }
         }
