@@ -35,7 +35,7 @@ spec:
                 //sh 'conan profile show default'
                 sh 'conan create . -e CXXFLAGS="-g -O0"'
             }
-        },
+        }
         stage('Publish') {
             sh 'conan create .' // No Debug for export
             sh 'conan upload "LomontFFT*" --all -r mccool -c --retry 3 --retry-wait 10 --no-overwrite'
