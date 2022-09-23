@@ -37,8 +37,10 @@ spec:
             }
         }
         stage('Publish') {
-            sh 'conan create .' // No Debug for export
-            sh 'conan upload "LomontFFT*" --all -r mccool -c --retry 3 --retry-wait 10 --no-overwrite'
+            steps {
+                sh 'conan create .' // No Debug for export
+                sh 'conan upload "LomontFFT*" --all -r mccool -c --retry 3 --retry-wait 10 --no-overwrite'
+            }
         }
     }
 }
