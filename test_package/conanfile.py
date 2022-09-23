@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from conans import ConanFile, CMake, tools
 
@@ -23,4 +24,7 @@ class LomontFFTTestConan(ConanFile):
     def test(self):
         if not tools.cross_building(self):
             os.chdir("bin")
-            self.run(f".{os.sep}test")
+            if shutil.which("valgrind") is not None:
+                self.run(f"valgrind .{os.sep}test")
+            else:
+                self.run(f".{os.sep}test")
